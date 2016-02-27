@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: rapidRoll\nType: Package\nTitle: Quick Rolling Averages\nVersion: 0.1.0\nAuthor: Joe Heywood\nMaintainer: Joe Heywood <joe.heywood@gmail.com>\nDescription: This package uses Rcpp and insertion sort algorithms to come u\n             with fast and efficient rolling means and medians.\nLicense: What license is it under?\nLazyData: TRUE",
+    "created" : 1456572051107.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4171671928",
+    "id" : "DF115D79",
+    "lastKnownWriteTime" : 1456572028,
+    "last_content_update" : 1456572176890,
+    "path" : "~/Dropbox/Programming/R/rapidRoll/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

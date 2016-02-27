@@ -1,9 +1,13 @@
 Package: rapidRoll
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Quick Rolling Averages
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Joe Heywood
+Maintainer: Joe Heywood <joe.heywood@gmail.com>
+Description: This package uses Rcpp and insertion sort algorithms to come
+    with fast and efficient rolling means and medians.
+Depends: R (>= 3.1.0)
+License: GPL-3
 LazyData: TRUE
+Imports: Rcpp
+LinkingTo: Rcpp

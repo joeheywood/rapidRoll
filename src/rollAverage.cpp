@@ -95,11 +95,14 @@ public:
 
 
 // [[Rcpp::export]]
-NumericVector rollingMeanRaw(NumericVector v, int k) {
+NumericVector rollingAveRaw(NumericVector v, int k, string avetype) {
     vector<double> firstK (k);
     NumericVector out(v.size() - (k-1) ) ;
     for(int i = 0; i < k; i++) firstK[i] = v[i];
-    RollingMeanWindow w(firstK);
+    if(avetype.compare("mean") == 0) RollingMeanWindow w(firstK);
+    else if(avetype.compare("median") == 0) RollingMedianWindow w(firstK);
+    else RollingMeanWindow w(firstK);
+    // need to use a template...
     int oi = 0;
     out[oi++] = w.initialValue();
     for(int j = k; j < v.size(); j++) out[oi++] = w.addValue(v[j]);

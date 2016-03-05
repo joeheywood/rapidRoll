@@ -5,6 +5,19 @@
 
 using namespace Rcpp;
 
+// rollingAveRaw
+NumericVector rollingAveRaw(NumericVector v, int k, String avetype);
+RcppExport SEXP rapidRoll_rollingAveRaw(SEXP vSEXP, SEXP kSEXP, SEXP avetypeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< NumericVector >::type v(vSEXP);
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< String >::type avetype(avetypeSEXP);
+    __result = Rcpp::wrap(rollingAveRaw(v, k, avetype));
+    return __result;
+END_RCPP
+}
 // rollingMedianRaw
 NumericVector rollingMedianRaw(NumericVector v, int k);
 RcppExport SEXP rapidRoll_rollingMedianRaw(SEXP vSEXP, SEXP kSEXP) {

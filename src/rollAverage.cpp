@@ -3,6 +3,8 @@ using namespace Rcpp;
 #include <vector>
 using namespace std;
 
+//
+
 class RollingAveWindow {
 private:
     RollingAveWindow();
@@ -95,28 +97,20 @@ public:
 
 
 // [[Rcpp::export]]
-NumericVector rollingAveRaw(NumericVector v, int k, string avetype) {
+NumericVector rollingAveRaw(NumericVector v, int k, String avetype) {
     vector<double> firstK (k);
+    string b = avetype;
     NumericVector out(v.size() - (k-1) ) ;
     for(int i = 0; i < k; i++) firstK[i] = v[i];
-    if(avetype.compare("mean") == 0) RollingMeanWindow w(firstK);
-    else if(avetype.compare("median") == 0) RollingMedianWindow w(firstK);
-    else RollingMeanWindow w(firstK);
-    // need to use a template...
     int oi = 0;
-    out[oi++] = w.initialValue();
-    for(int j = k; j < v.size(); j++) out[oi++] = w.addValue(v[j]);
-    return out;
-}
-
-// [[Rcpp::export]]
-NumericVector rollingMedianRaw(NumericVector v, int k) {
-    vector<double> firstK (k);
-    NumericVector out(v.size() - (k-1));
-    for(int i = 0; i < k; i++) firstK[i] = v[i];
-    RollingMedianWindow w(firstK);
-    int oi = 0;
-    out[oi++] = w.initialValue();
-    for(int j = k; j < v.size(); j++) out[oi++] = w.addValue(v[j]);
+    if(b.compare("mean") == 0) {
+        RollingMeanWindow w(firstK);
+        out[oi++] = w.initialValue();
+        for(int j = k; j < v.size(); j++) out[oi++] = w.addValue(v[j]);
+    } else if(b.compare("median") == 0) {
+        RollingMedianWindow w(firstK);
+        out[oi++] = w.initialValue();
+        for(int j = k; j < v.size(); j++) out[oi++] = w.addValue(v[j]);
+    }
     return out;
 }

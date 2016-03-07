@@ -9,5 +9,5 @@ Description: This package uses Rcpp and insertion sort algorithms to come
 Depends: R (>= 3.1.0)
 License: GPL-3
 LazyData: TRUE
-Imports: Rcpp
+Imports: Rcpp, dplyr
 LinkingTo: Rcpp
